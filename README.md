@@ -5,6 +5,7 @@
 ## [Nachos-Lab3-同步与互斥机制模块实现](https://icoty.github.io/2019/05/14/nachos-3-4-Lab3/)
 
 ## 目录结构
+```bash
 .
 ├── COPYRIGHT
 ├── gnu-decstation-ultrix	// 交叉编译工具链
@@ -81,7 +82,7 @@
   └── Makefile	// 多线程编译: make -j4
   └── Makefile.common	// 各个模块公共的Makefile内容存放到这里面
   └── Makefile.dep	// 依赖
-
+```
 
 This README file describes the Nachos release.  Comments, questions,
 and bug reports are always welcome, and can be directed to 
