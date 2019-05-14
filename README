@@ -1,3 +1,88 @@
+## [Nachos-Lab1-完善线程机制](https://icoty.github.io/2019/05/13/nachos-3-4-Lab1/)
+
+## [Nachos-Lab2-线程调度模块实现](https://icoty.github.io/2019/05/14/nachos-3-4-Lab2/)
+
+## [Nachos-Lab3-同步与互斥机制模块实现](https://icoty.github.io/2019/05/14/nachos-3-4-Lab3/)
+
+## 目录结构
+.
+├── COPYRIGHT
+├── gnu-decstation-ultrix	// 交叉编译工具链
+├── nachos-3.4.zip	// 未经任何修改的源码和交叉编译工具，实验就是修改源码完善各个模块的功能
+├── README
+└── nachos-3.4	// 实验过程中完善的代码
+  ├── test	// 该目录下编写用户自己的程序，需要修改Makfile添加自己的文件
+  ├── bin	// 用户自己的程序需要利用coff2noff转换，才能在nachos下跑起来
+  ├── filesys	// 文件系统管理
+  │   ├── directory.cc	// 目录文件，由目录项组成，目录项里记录了文件头所在扇区号
+  │   ├── directory.h
+  │   ├── filehdr.cc
+  │   ├── filehdr.h	// 文件头数据结构，通过索引记录了文件内容实际存储的所有扇区号
+  │   ├── filesys.cc	// 文件系统数据结构，创建/删除/读/写/修改/重命名/打开/关别等接口
+  │   ├── filesys.h
+  │   ├── fstest.cc
+  │   ├── Makefile
+  │   ├── openfile.cc	// 管理所有打开的文件句柄
+  │   ├── openfile.h
+  │   ├── synchdisk.cc	// 同步磁盘类，加锁保证互斥和文件系统的一致性
+  │   ├── synchdisk.h
+  │   └── test
+  ├── machine	// 机器硬件模拟
+  │   ├── console.cc	// 终端
+  │   ├── console.h
+  │   ├── disk.cc	// 磁盘
+  │   ├── disk.h
+  │   ├── interrupt.cc	// 中断处理器，利用FIFO维护一个中断队列
+  │   ├── interrupt.h
+  │   ├── timer.cc	// 模拟硬件时钟，用于时钟中断
+  │   ├── timer.h
+  │   ├── translate.cc	// 用户程序空间虚拟地址和物理之间的转换类
+  │   └── translate.h
+  ├── network	// 网络系统管理
+  │   ├── Makefile
+  │   ├── nettest.cc
+  │   ├── post.cc
+  │   ├── post.h
+  │   └── README
+  ├── threads	// 内核线程管理
+  │   ├── list.cc	// 工具模块 定义了链表结构及其操作
+  │   ├── list.h
+  │   ├── main.cc	// main入口，可以传入argv参数
+  │   ├── Makefile
+  │   ├── scheduler.cc	// 调度器，维护一个就绪的线程队列，时间片轮转/FIFO/优先级抢占
+  │   ├── scheduler.h
+  │   ├── stdarg.h
+  │   ├── switch.c	// 线程启动和调度模块
+  │   ├── switch.h
+  │   ├── switch-old.s
+  │   ├── switch.s	// 线程切换
+  │   ├── synch.cc	// 同步与互斥，锁/信号量/条件变量
+  │   ├── synch.dis
+  │   ├── synch.h
+  │   ├── synchlist.cc	// 类似于一个消息队列
+  │   ├── synchlist.h
+  │   ├── system.cc	// 主控模块
+  │   ├── system.h
+  │   ├── thread.cc	// 线程数据结构
+  │   ├── thread.h
+  │   ├── threadtest.cc	
+  │   ├── utility.cc
+  │   └── utility.h
+  ├── userprog	// 用户进程管理
+  │   ├── addrspace.cc	// 为noff文件的代码段/数据段分配空间，虚拟地址空间
+  │   ├── addrspace.h
+  │   ├── bitmap.cc	// 位图，用于管理扇区的分配和物理地址的分配
+  │   ├── bitmap.h
+  │   ├── exception.cc	// 异常处理
+  │   ├── Makefile
+  │   ├── progtest.cc	// 测试nachos是否可执行用户程序
+  │   └── syscall.h	// 系统调用
+  └── vm	// 虚拟内存管理
+  └── Makefile	// 多线程编译: make -j4
+  └── Makefile.common	// 各个模块公共的Makefile内容存放到这里面
+  └── Makefile.dep	// 依赖
+
+
 This README file describes the Nachos release.  Comments, questions,
 and bug reports are always welcome, and can be directed to 
 nachos@cs.berkeley.edu (for now, an alias to just me, Tom Anderson), or 
